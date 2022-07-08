@@ -38,17 +38,6 @@ variable "table_name" {
   description = "The name of the table."
 }
 
-variable "enable_column_family" {
-  type        = bool
-  description = "A group of columns within a table which share a common configuration."
-  default     = false
-}
-
-variable "family_name" {
-  type        = string
-  description = "The name of the column family"
-}
-
 variable "enable_app_profile" {
   type        = bool
   description = "(optional) describe your variable"

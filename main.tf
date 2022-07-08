@@ -17,13 +17,6 @@ resource "google_bigtable_table" "table" {
   name          = var.table_name[count.index]
   project       = var.project_id
   instance_name = google_bigtable_instance.production-instance.name
-
-  dynamic "column_family" {
-    for_each = var.enable_column_family ? [{}] : []
-    content {
-      family = var.family_name
-    }
-  }
 }
 
 resource "google_bigtable_app_profile" "app_profile" {
