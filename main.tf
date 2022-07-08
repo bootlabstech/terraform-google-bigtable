@@ -1,8 +1,8 @@
 resource "google_bigtable_instance" "production-instance" {
   name                = var.bigtable_instance_name
   project             = var.project_id
-  deletion_protection = var.deletion_protection
-  }
+  deletion_protection = false
+
   cluster {
     cluster_id   = var.cluster_name
     storage_type = var.storage_type
@@ -27,7 +27,7 @@ resource "google_bigtable_table" "table" {
 }
 
 resource "google_bigtable_app_profile" "app_profile" {
-  for_each                      = var.enable_app_profile ? toset([{}]) : []
+  count                         = var.enable_app_profile ? 1 : 0
   project                       = var.project_id
   instance                      = google_bigtable_instance.production-instance.name
   app_profile_id                = var.app_profile_id

@@ -8,11 +8,6 @@ variable "project_id" {
   description = "The ID of the project in which the resource belongs."
 }
 
-variable "deletion_protection" {
-  type        = bool
-  description = "Whether or not to allow Terraform to destroy the instance"
-}
-
 variable "cluster_name" {
   type        = string
   description = "The name of cluster"
