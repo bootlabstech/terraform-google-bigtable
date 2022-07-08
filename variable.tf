@@ -13,12 +13,6 @@ variable "deletion_protection" {
   description = "Whether or not to allow Terraform to destroy the instance"
 }
 
-variable "labels" {
-  type        = map(string)
-  description = "Set of labels to identify the topic"
-  default     = {}
-}
-
 variable "cluster_name" {
   type        = string
   description = "The name of cluster"

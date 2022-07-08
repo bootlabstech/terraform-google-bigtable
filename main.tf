@@ -2,11 +2,6 @@ resource "google_bigtable_instance" "production-instance" {
   name                = var.bigtable_instance_name
   project             = var.project_id
   deletion_protection = var.deletion_protection
-  labels              = length(keys(var.labels)) < 0 ? null : var.labels
-  lifecycle {
-    ignore_changes = [
-      labels,
-    ]
   }
   cluster {
     cluster_id   = var.cluster_name
