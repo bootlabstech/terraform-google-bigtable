@@ -8,12 +8,12 @@ resource "google_bigtable_instance" "production-instance" {
     storage_type = var.storage_type
     zone         = var.zone
     num_nodes    = var.number_of_cluster
-    kms_key_name = var.kms_key_name
+    #kms_key_name = var.kms_key_name
   }
 }
 
 resource "google_bigtable_table" "table" {
-  count         = length(var.table_name)
+  count         = var.no_of_tables
   name          = var.table_name[count.index]
   project       = var.project_id
   instance_name = google_bigtable_instance.production-instance.name
