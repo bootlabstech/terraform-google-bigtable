@@ -9,9 +9,9 @@ resource "google_bigtable_instance" "production-instance" {
     zone         = var.zone
     num_nodes    = var.number_of_cluster
     #kms_key_name = var.kms_key_name
-      lifecycle {
-    ignore_changes = [labels]
   }
+       lifecycle {
+    ignore_changes = [labels]
   }
 }
 
